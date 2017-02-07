@@ -1,5 +1,5 @@
 #include "enemy.h"
-#include <QTime>
+#include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h>
@@ -17,7 +17,7 @@ Enemy::Enemy(): QObject(), QGraphicsRectItem(){
 
 void Enemy::move(){
     setPos(x(), y()+10);
-    if(pos.y()+ rect().height() < 0)
+    if(pos().y()+ rect().height() < 0)
         scene()->removeItem(this);
         delete this;
 

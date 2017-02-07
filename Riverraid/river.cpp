@@ -1,6 +1,6 @@
 #include "river.h"
 
-River::River()
+River::River(QWidget* parent)
 {
     //creating a scene
     scene = new QGraphicsScene();
@@ -9,10 +9,10 @@ River::River()
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    SetFixedSize(800, 600);
+    setFixedSize(800, 600);
 
     //create player
-    player = new player();
+    player = new Player();
     player->setRect(0,0,100,100);
     player->setPos(400,500);
     //make player focusable
@@ -22,8 +22,8 @@ River::River()
     scene->addItem(player);
 
     // create score
-    score = new Score();
-    scene->addItem(score);
+//    score = new Score();
+//    scene->addItem(score);
 
     // spawn enemies
     QTimer *timer = new QTimer();
