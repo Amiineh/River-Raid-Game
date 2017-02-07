@@ -3,6 +3,9 @@
 
 #include <QGraphicsRectItem>
 #include <QObject>
+#include <QKeyEvent>
+#include "bullet.h"
+#include <QGraphicsScene>
 
 class Player: public QObject, public QGraphicsRectItem {
     Q_OBJECT

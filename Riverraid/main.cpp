@@ -1,4 +1,4 @@
-#include <QtGui/QApplication>
+#include <QApplication>
 #include "river.h"
 
 River * river;
@@ -10,5 +10,5 @@ int main(int argc, char *argv[])
     river = new River();
     river->show();
 
-    return app->exec();
+    return a.exec();
 }

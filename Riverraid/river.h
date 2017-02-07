@@ -1,18 +1,19 @@
 #ifndef RIVER_H
 #define RIVER_H
 
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 #include <QGraphicsView>
 #include "player.h"
+#include <QTimer>
+#include <QWidget>
 
-class River {
+class River : public QGraphicsView{
+public:
+    River(QWidget* parent = 0);
     QGraphicsScene *scene;
     Player *player;
-public:
-    River();
-
 };
 
 #endif // RIVER_H
