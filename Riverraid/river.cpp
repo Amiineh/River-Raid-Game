@@ -1,5 +1,4 @@
 #include "river.h"
-
 River::River(QWidget* parent)
 {
     //creating a scene
@@ -13,8 +12,9 @@ River::River(QWidget* parent)
 
     //create player
     player = new Player();
-    player->setRect(0,0,100,100);
-    player->setPos(400,500);
+    player->setPixmap(QPixmap(":/pictures/player.jpg"));
+    player->setScale(0.2);
+    player->setPos(400,550);
     //make player focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
@@ -22,8 +22,8 @@ River::River(QWidget* parent)
     scene->addItem(player);
 
     // create score
-//    score = new Score();
-//    scene->addItem(score);
+    score = new Score();
+    scene->addItem(score);
 
     // spawn enemies
     QTimer *timer = new QTimer();

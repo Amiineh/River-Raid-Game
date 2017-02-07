@@ -27,11 +27,16 @@ SOURCES += main.cpp\
     enemy.cpp \
     bullet.cpp \
     player.cpp \
-    river.cpp
+    river.cpp \
+    score.cpp
 
 HEADERS  += enemy.h \
     bullet.h \
     player.h \
-    river.h
+    river.h \
+    score.h
 
 FORMS    +=
+
+RESOURCES += \
+    res.qrc

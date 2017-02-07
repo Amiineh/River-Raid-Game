@@ -2,6 +2,8 @@
 
 Player::Player()
 {
+    //draw graphic
+   setPixmap(QPixmap(":/pictures/player.jpg"));
 }
 
 void Player::keyPressEvent(QKeyEvent *event) {
@@ -22,6 +24,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
 }
 
 void Player::Spawn(){
-    Enemy *enemy = new Enemy();
-
+    int random_number = rand() % 4;
+    Enemy *enemy = new Enemy(random_number+1);
+    scene()->addItem(enemy);
 }

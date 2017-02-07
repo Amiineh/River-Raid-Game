@@ -10,12 +10,14 @@
 #include "bullet.h"
 #include <QTimer>
 #include <QWidget>
+#include"score.h"
 
 class River : public QGraphicsView{
 public:
     River(QWidget* parent = 0);
     QGraphicsScene *scene;
     Player *player;
+    Score * score;
 };
 
 #endif // RIVER_H
