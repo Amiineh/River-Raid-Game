@@ -10,11 +10,13 @@
 #include "enemy.h"
 #include <typeinfo>
 #include <QDebug>
+#include "score.h"
 
 class Bullet: public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
     Bullet();
+    int hit();
 public slots:
     void move();
 };

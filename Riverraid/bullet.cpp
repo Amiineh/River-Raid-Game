@@ -1,4 +1,6 @@
 #include "bullet.h"
+#include"river.h"
+extern River * river;
 
 Bullet::Bullet(): QObject(), QGraphicsRectItem(){
     int random_number = rand() % 700;
@@ -8,15 +10,16 @@ Bullet::Bullet(): QObject(), QGraphicsRectItem(){
     QTimer * timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
     timer->start(50);
-
 }
 
 void Bullet::move(){
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i ){
         if(typeid(*(colliding_items[i])) == typeid(Enemy)){
+            river->score->increase();
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
+            qDebug()<<"delete";
             delete colliding_items[i];
             delete this;
             return;
@@ -27,4 +30,8 @@ void Bullet::move(){
         scene()->removeItem(this);
         delete this;
     }
+}
+
+int Bullet::hit(){
+    return 10;
 }
