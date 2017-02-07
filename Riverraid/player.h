@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QKeyEvent>
 #include "bullet.h"
+#include "enemy.h"
 #include <QGraphicsScene>
 
 class Player: public QObject, public QGraphicsRectItem {
@@ -12,6 +13,8 @@ class Player: public QObject, public QGraphicsRectItem {
 public:
     Player();
     void keyPressEvent(QKeyEvent *event);
+public slots:
+    void Spawn();
 };
 
 #endif // PLAYER_H

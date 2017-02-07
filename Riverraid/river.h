@@ -6,6 +6,8 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsView>
 #include "player.h"
+#include "enemy.h"
+#include "bullet.h"
 #include <QTimer>
 #include <QWidget>
 

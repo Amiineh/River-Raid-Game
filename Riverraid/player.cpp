@@ -20,3 +20,8 @@ void Player::keyPressEvent(QKeyEvent *event) {
         scene()->addItem(bullet);
     }
 }
+
+void Player::Spawn(){
+    Enemy *enemy = new Enemy();
+
+}
