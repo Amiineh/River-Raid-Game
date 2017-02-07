@@ -24,12 +24,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     enemy.cpp \
-    bullet.cpp
+    bullet.cpp \
+    player.cpp \
+    river.cpp
 
-HEADERS  += mainwindow.h \
-    enemy.h \
-    bullet.h
+HEADERS  += enemy.h \
+    bullet.h \
+    player.h \
+    river.h
 
 FORMS    +=
