@@ -29,14 +29,16 @@ SOURCES += main.cpp\
     player.cpp \
     river.cpp \
     score.cpp \
-    fuel.cpp
+    fuel.cpp \
+    health.cpp
 
 HEADERS  += enemy.h \
     bullet.h \
     player.h \
     river.h \
     score.h \
-    fuel.h
+    fuel.h \
+    health.h
 
 FORMS    +=
 

@@ -1,5 +1,7 @@
 #ifndef FUEL_H
 #define FUEL_H
+#include<QObject>
+#include<QGraphicsPixmapItem>
 
 #include <QObject>
 #include <QGraphicsPixmapItem>
@@ -12,7 +14,10 @@
 #include <QList>
 #include <stdlib.h>
 #include "player.h"
+<<<<<<< HEAD
 //#include "river.h"
+=======
+>>>>>>> master
 
 class Fuel: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
@@ -20,11 +25,11 @@ public:
     Fuel();
     int getHitScore() const;
     void setHitScore(int value);
-
 public slots:
     void move();
 private:
     int hitScore;
+
 };
 
 #endif // FUEL_H

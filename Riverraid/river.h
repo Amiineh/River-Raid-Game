@@ -11,7 +11,7 @@
 #include <QTimer>
 #include <QWidget>
 #include "score.h"
-#include "fuel.h"
+#include "health.h"
 
 class River : public QGraphicsView{
 public:
@@ -26,6 +26,7 @@ public:
     QGraphicsScene *scene;
     Player *player;
     Score * score;
+    Health * health;
 };
 
 #endif // RIVER_H
