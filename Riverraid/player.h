@@ -16,14 +16,17 @@ class Player: public QObject, public QGraphicsPixmapItem {
 public:
     Player();
     void keyPressEvent(QKeyEvent *event);
+    void keyReleaseEvent(QKeyEvent *event);
     Health *getHealth() const;
     void setHealth(Health *value);
 
 public slots:
     void Spawn();
         void decrease();
+        void update();
 private:
     Health * health;
+    int speed;
 };
 
 #endif // PLAYER_H

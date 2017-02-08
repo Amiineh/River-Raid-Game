@@ -37,5 +37,8 @@ River::River(QWidget* parent)
     QObject::connect(timer,SIGNAL(timeout()), player, SLOT(Spawn()));
     timer->start(2000);
 
+    QTimer * timer_update_player = new QTimer();
+    QObject::connect(timer_update_player,SIGNAL(timeout()), player, SLOT(update()));
+    timer_update_player->start(50);
     show();
 }

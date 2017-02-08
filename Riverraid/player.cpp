@@ -5,18 +5,17 @@ Player::Player()
     //draw graphic
 //   setPixmap(QPixmap(":/pictures/player.jpg"));
      health = new Health();
+     speed = 0;
 //   scene()->addItem(health);
 //   health->setPos(0, 30);
 }
 
 void Player::keyPressEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_Left) {
-        if (pos().x() > 0)
-            setPos(x() - 10, y());
+        this->speed = -10;
     }
     else if (event->key() == Qt::Key_Right) {
-        if (pos().x() + 100 < 800)
-            setPos(x() + 10, y());
+        this->speed = 10;
     }
     else if (event->key() == Qt::Key_Space) {
         // create bullet
@@ -25,6 +24,14 @@ void Player::keyPressEvent(QKeyEvent *event) {
         scene()->addItem(bullet);
     }
 }
+
+void Player::keyReleaseEvent(QKeyEvent *event) {
+    if (event->key() == Qt::Key_Left && this->speed < 0) {
+        this->speed = 0;
+    }
+    else if (event->key() == Qt::Key_Right && this->speed > 0) {
+        this->speed = 0;
+    }}
 
 void Player::Spawn(){
     int random_number = rand() % 4;
@@ -47,4 +54,10 @@ void Player::setHealth(Health *value)
 
 void Player::decrease(){
     health->decrease();
+}
+
+void Player::update(){
+    qDebug()<<"update";
+    if (0 < pos().x() + this->speed && pos().x() + this->speed < 800)
+       setPos(x() + this->speed, y());
 }
