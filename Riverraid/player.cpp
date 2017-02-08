@@ -33,14 +33,19 @@ void Player::keyReleaseEvent(QKeyEvent *event) {
         this->speed = 0;
     }}
 
-void Player::Spawn(){
+void Player::Spawn_enemy(){
     int random_number = rand() % 4;
     Enemy *enemy = new Enemy(random_number+1);
     scene()->addItem(enemy);
+}
 
+
+void Player::Spawn_fuel(){
     Fuel *fuel = new Fuel();
     scene()->addItem(fuel);
 }
+
+
 Health *Player::getHealth() const
 {
     return health;
@@ -58,6 +63,6 @@ void Player::decrease(){
 
 void Player::update(){
     qDebug()<<"update";
-    if (0 < pos().x() + this->speed && pos().x() + this->speed < 800)
+    if (190 < pos().x() + this->speed && pos().x() + this->speed < 700)
        setPos(x() + this->speed, y());
 }

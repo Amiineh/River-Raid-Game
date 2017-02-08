@@ -17,7 +17,7 @@ River::River(QWidget* parent)
     player = new Player();
     player->setPixmap(QPixmap(":/pictures/player.jpg"));
     player->setScale(0.2);
-    player->setPos(400,550);
+    player->setPos(450,450);
     //make player focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
@@ -34,8 +34,13 @@ River::River(QWidget* parent)
 
     // spawn enemies
     QTimer *timer = new QTimer();
-    QObject::connect(timer,SIGNAL(timeout()), player, SLOT(Spawn()));
+    QObject::connect(timer,SIGNAL(timeout()), player, SLOT(Spawn_enemy()));
     timer->start(2000);
+
+
+    QTimer *timer_fuel = new QTimer();
+    QObject::connect(timer_fuel,SIGNAL(timeout()), player, SLOT(Spawn_fuel()));
+    timer_fuel->start(3000);
 
     QTimer * timer_update_player = new QTimer();
     QObject::connect(timer_update_player,SIGNAL(timeout()), player, SLOT(update()));

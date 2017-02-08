@@ -21,9 +21,10 @@ public:
     void setHealth(Health *value);
 
 public slots:
-    void Spawn();
-        void decrease();
-        void update();
+    void Spawn_enemy();
+    void Spawn_fuel();
+    void decrease();
+    void update();
 private:
     Health * health;
     int speed;
