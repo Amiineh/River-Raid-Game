@@ -1,8 +1,9 @@
 #include "fuel.h"
+#include "river.h"
 
 extern River* river;
 
-Fuel::Fuel(int Number): QObject(), QGraphicsPixmapItem(){
+Fuel::Fuel(): QObject(), QGraphicsPixmapItem(){
     QString pic_name = ":/pictures/fuel.jpg";
     setPixmap(QPixmap(pic_name));
     setScale(0.7);
