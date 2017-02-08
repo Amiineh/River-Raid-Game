@@ -1,10 +1,11 @@
 #include "bullet.h"
-#include"river.h"
+#include "river.h"
 extern River * river;
 
 Bullet::Bullet(): QObject(), QGraphicsPixmapItem(){
     //draw graphic
     setPixmap(QPixmap(":/pictures/bullet.jpg"));
+    setScale(0.3);
 
     QTimer * timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));

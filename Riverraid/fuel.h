@@ -14,12 +14,11 @@
 #include <QList>
 #include <stdlib.h>
 #include "player.h"
-#include "river.h"
 
 class Fuel: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
-    Fuel(int Number);
+    Fuel();
     int getHitScore() const;
     void setHitScore(int value);
 public slots:
