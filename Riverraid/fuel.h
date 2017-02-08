@@ -14,8 +14,6 @@
 #include "player.h"
 #include "river.h"
 
-extern River* river;
-
 class Fuel: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:

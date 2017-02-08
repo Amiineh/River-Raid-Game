@@ -10,7 +10,8 @@
 #include "bullet.h"
 #include <QTimer>
 #include <QWidget>
-#include"score.h"
+#include "score.h"
+#include "fuel.h"
 
 class River : public QGraphicsView{
 public:

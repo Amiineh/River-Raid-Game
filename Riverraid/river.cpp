@@ -1,4 +1,5 @@
 #include "river.h"
+
 River::River(QWidget* parent)
 {
     //creating a scene
@@ -25,7 +26,7 @@ River::River(QWidget* parent)
     score = new Score();
     scene->addItem(score);
 
-    // spawn enemies
+    // spawn enemies and fuel
     QTimer *timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()), player, SLOT(Spawn()));
     timer->start(2000);
