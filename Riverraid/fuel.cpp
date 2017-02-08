@@ -51,3 +51,14 @@ void Fuel::setHitScore(int value)
 {
     hitScore = value;
 }
+//Fuel::Fuel() {
+//    score = 0;
+//    setPlainText("score:" + QString::number(score));
+//    setDefaultTextColor(Qt::black);
+//    setScale(2);
+//}
+
+//void Fuel::increase(int value){
+//    score += value;
+//    setPlainText("score:" + QString::number(score));
+//}

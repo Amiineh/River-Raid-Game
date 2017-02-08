@@ -11,8 +11,8 @@
 #include <typeinfo>
 #include <QDebug>
 #include "score.h"
-
-class Bullet: public QObject, public QGraphicsRectItem{
+#include <QGraphicsPixmapItem>
+class Bullet: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Bullet();

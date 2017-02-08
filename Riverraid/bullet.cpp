@@ -2,7 +2,7 @@
 #include"river.h"
 extern River * river;
 
-Bullet::Bullet(): QObject(), QGraphicsRectItem(){
+Bullet::Bullet(): QObject(), QGraphicsPixmapItem(){
     //draw graphic
     setPixmap(QPixmap(":/pictures/bullet.jpg"));
 
@@ -13,7 +13,7 @@ Bullet::Bullet(): QObject(), QGraphicsRectItem(){
 
 void Bullet::move(){
     setPos(x(), y() - 10);
-    if(pos().y()+ rect().height() < 0) {
+    if(pos().y() < 0) {
         scene()->removeItem(this);
         delete this;
     }
