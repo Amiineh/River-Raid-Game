@@ -7,12 +7,10 @@ Health::Health(QGraphicsItem* parent): QGraphicsTextItem(parent)
     setPlainText("health:" + QString::number(amount));
     setDefaultTextColor(Qt::red);
     setScale(2);
-    setPos(0,20);
-//    setFont(QFont("times", 16));
+    setPos(0,25);
 }
 
 void Health::decrease(){
-    qDebug() << "decrease";
     amount-=1;
     setPlainText("health:" + QString::number(amount));
 //    if(getAmount() <= 0){

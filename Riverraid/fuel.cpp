@@ -29,7 +29,7 @@ void Fuel::move(){
             return;
         }
         if(typeid(*(colliding_items[i])) == typeid(Player)){
-//            scene()->health->fill();
+            river->player->getHealth()->fill();
             scene()->removeItem(this);
             delete this;
             return;
