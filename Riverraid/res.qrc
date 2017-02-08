@@ -7,5 +7,6 @@
         <file>enemy_2.jpg</file>
         <file>enemy_1.jpg</file>
         <file>bullet.jpg</file>
+        <file>background.jpg</file>
     </qresource>
 </RCC>
