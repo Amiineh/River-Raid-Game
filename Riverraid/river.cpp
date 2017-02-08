@@ -21,20 +21,14 @@ River::River(QWidget* parent)
     player->setFocus();
     //add player to scene
     scene->addItem(player);
-
+    scene->addItem(player->getHealth());
     // create score
     score = new Score();
     scene->addItem(score);
 
-    health = new Health();
-    scene->addItem(health);
-    health->setPos(0, 30);
-
     QTimer *timer_health = new QTimer();
-//    QObject::connect(timer_health,SIGNAL(timeout()), health, SLOT(decrease()));
-//    timer_health->start(2000);
-    QGraphicsTextItem::connect(timer_health,SIGNAL(timeout()), health, SLOT(decrease()));
-    timer_health->start(100);
+    QObject::connect(timer_health,SIGNAL(timeout()), player, SLOT(decrease()));
+    timer_health->start(200);
 
     // spawn enemies
     QTimer *timer = new QTimer();

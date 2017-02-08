@@ -10,7 +10,6 @@ public:
     int getAmount() const;
     void setAmount(int value);
     void fill();
-public slots:
     void decrease();
 private:
     int amount;
