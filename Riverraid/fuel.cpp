@@ -5,7 +5,7 @@ extern River* river;
 Fuel::Fuel(int Number): QObject(), QGraphicsPixmapItem(){
     QString pic_name = ":/pictures/fuel.jpg";
     setPixmap(QPixmap(pic_name));
-    setScale(0.3);
+    setScale(0.7);
     this->setHitScore(river->fuelHitScore);
     int random_number = rand() % 700;
     setPos(random_number, 0);
