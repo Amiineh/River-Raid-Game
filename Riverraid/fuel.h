@@ -14,10 +14,7 @@
 #include <QList>
 #include <stdlib.h>
 #include "player.h"
-<<<<<<< HEAD
 //#include "river.h"
-=======
->>>>>>> master
 
 class Fuel: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT

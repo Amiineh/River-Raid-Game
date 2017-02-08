@@ -28,6 +28,6 @@ void Player::Spawn(){
     Enemy *enemy = new Enemy(random_number+1);
     scene()->addItem(enemy);
 
-//    Fuel *fuel = new Fuel();
-//    scene()->addItem(fuel);
+    Fuel *fuel = new Fuel();
+    scene()->addItem(fuel);
 }

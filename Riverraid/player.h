@@ -6,7 +6,7 @@
 #include <QKeyEvent>
 #include "bullet.h"
 #include "enemy.h"
-//#include "fuel.h"
+#include "fuel.h"
 #include <QGraphicsScene>
 
 class Player: public QObject, public QGraphicsPixmapItem {
