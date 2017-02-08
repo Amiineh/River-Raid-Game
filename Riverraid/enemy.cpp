@@ -11,12 +11,28 @@
 extern River* river;
 
 Enemy::Enemy(int Number): QObject(), QGraphicsPixmapItem(){
+
     QString str;
     str.setNum(Number);
     QString pic_name = ":/pictures/enemy_" + str + ".jpg";
     setPixmap(QPixmap(pic_name));
     setScale(0.3);
-    this->setHit_score(10);
+
+    switch (Number) {
+    case 1:
+        this->setHit_score(river->helikopterHitScore);
+        break;
+    case 2:
+        this->setHit_score(river->shipHitScore);
+        break;
+    case 3:
+        this->setHit_score(river->balloonHitScore);
+        break;
+    case 4:
+        this->setHit_score(river->jetHitScore);
+        break;
+    }
+
     qDebug() << "create enemy";
     int random_number = rand() % 700;
     setPos(random_number, 0);

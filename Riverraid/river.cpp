@@ -26,7 +26,17 @@ River::River(QWidget* parent)
     score = new Score();
     scene->addItem(score);
 
-    // spawn enemies and fuel
+    health = new Health();
+    scene->addItem(health);
+    health->setPos(0, 30);
+
+    QTimer *timer_health = new QTimer();
+//    QObject::connect(timer_health,SIGNAL(timeout()), health, SLOT(decrease()));
+//    timer_health->start(2000);
+    QGraphicsTextItem::connect(timer_health,SIGNAL(timeout()), health, SLOT(decrease()));
+    timer_health->start(100);
+
+    // spawn enemies
     QTimer *timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()), player, SLOT(Spawn()));
     timer->start(2000);

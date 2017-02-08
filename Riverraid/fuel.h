@@ -1,5 +1,7 @@
 #ifndef FUEL_H
 #define FUEL_H
+#include<QObject>
+#include<QGraphicsPixmapItem>
 
 #include <QObject>
 #include <QGraphicsPixmapItem>
@@ -19,11 +21,11 @@ public:
     Fuel();
     int getHitScore() const;
     void setHitScore(int value);
-
 public slots:
     void move();
 private:
     int hitScore;
+
 };
 
 #endif // FUEL_H

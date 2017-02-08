@@ -11,7 +11,6 @@
 #include <typeinfo>
 #include <QDebug>
 #include "score.h"
-
 class Bullet: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
