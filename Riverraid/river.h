@@ -12,6 +12,9 @@
 #include <QWidget>
 #include <QBrush>
 #include <QImage>
+#include <QWidget>
+#include <QObject>
+#include <QPushButton>
 #include "score.h"
 #include "health.h"
 
@@ -28,6 +31,8 @@ public:
     QGraphicsScene *scene;
     Player *player;
     Score * score;
+
+    void gameOver();
 };
 
 #endif // RIVER_H

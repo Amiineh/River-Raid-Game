@@ -59,6 +59,7 @@ void Enemy::move(){
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
             qDebug()<<"delete player";
+            river->gameOver();
             delete colliding_items[i];
             delete this;
             return;
