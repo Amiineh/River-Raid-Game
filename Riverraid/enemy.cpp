@@ -6,6 +6,9 @@
 #include <QDebug>
 #include "player.h"
 #include <QString>
+#include "river.h"
+
+extern River* river;
 
 Enemy::Enemy(int Number): QObject(), QGraphicsPixmapItem(){
     QString str;
@@ -13,6 +16,7 @@ Enemy::Enemy(int Number): QObject(), QGraphicsPixmapItem(){
     QString pic_name = ":/pictures/enemy_" + str + ".jpg";
     setPixmap(QPixmap(pic_name));
     setScale(0.3);
+    this->setHit_score(10);
     qDebug() << "create enemy";
     int random_number = rand() % 700;
     setPos(random_number, 0);
@@ -26,20 +30,29 @@ Enemy::Enemy(int Number): QObject(), QGraphicsPixmapItem(){
 void Enemy::move(){
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i ){
-        if(typeid(*(colliding_items[i])) == typeid(Player)){
+        if(typeid(*(colliding_items[i])) == typeid(Bullet)){
+            river->score->increase(this->getHit_score());
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
-            qDebug()<<"delete";
+            qDebug()<<"delete enemy and bullet";
             delete colliding_items[i];
             delete this;
             return;
         }
+        if(typeid(*(colliding_items[i])) == typeid(Player)){
+            scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(this);
+            qDebug()<<"delete player";
+            delete colliding_items[i];
+            delete this;
+            return;
+        }
+
     }
     qDebug() << "move enemy";
     setPos(x(), y()+10);
     if(pos().y() > 600){
         scene()->removeItem(this);
-//        qDebug
         delete this;
     }
 
@@ -58,3 +71,4 @@ void Enemy::setHit_score(int value)
 int Enemy::get_type(){
     return this->type;
 }
+
