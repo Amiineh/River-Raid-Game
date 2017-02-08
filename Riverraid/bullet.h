@@ -1,7 +1,7 @@
 #ifndef BULLET
 #define BULLET
 
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QTimer>
 #include <QGraphicsScene>
@@ -12,7 +12,7 @@
 #include <QDebug>
 #include "score.h"
 
-class Bullet: public QObject, public QGraphicsRectItem{
+class Bullet: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Bullet();
