@@ -10,6 +10,8 @@
 #include "bullet.h"
 #include <QTimer>
 #include <QWidget>
+#include <QBrush>
+#include <QImage>
 #include "score.h"
 #include "health.h"
 
