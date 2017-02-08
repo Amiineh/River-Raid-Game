@@ -34,8 +34,8 @@ Enemy::Enemy(int Number): QObject(), QGraphicsPixmapItem(){
     }
 
     qDebug() << "create enemy";
-    int random_number = rand() % 700;
-    setPos(random_number, 0);
+    int random_number = rand() % 450;
+    setPos(random_number+225, 0);
 
     QTimer * timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
@@ -67,7 +67,7 @@ void Enemy::move(){
     }
     qDebug() << "move enemy";
     setPos(x(), y()+10);
-    if(pos().y() > 600){
+    if(pos().y() > 450){
         scene()->removeItem(this);
         delete this;
     }

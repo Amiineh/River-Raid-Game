@@ -8,8 +8,8 @@ Fuel::Fuel(): QObject(), QGraphicsPixmapItem(){
     setPixmap(QPixmap(pic_name));
     setScale(0.7);
     this->setHitScore(river->fuelHitScore);
-    int random_number = rand() % 700;
-    setPos(random_number, 0);
+    int random_number = rand() % 450;
+    setPos(random_number+225, 0);
 
     QTimer * timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
@@ -37,7 +37,7 @@ void Fuel::move(){
 
     }
     setPos(x(), y()+10);
-    if(pos().y() > 600){
+    if(pos().y() > 450){
         scene()->removeItem(this);
         delete this;
     }
