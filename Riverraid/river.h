@@ -26,7 +26,6 @@ public:
     QGraphicsScene *scene;
     Player *player;
     Score * score;
-    Health * health;
 };
 
 #endif // RIVER_H

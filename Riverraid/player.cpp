@@ -3,7 +3,10 @@
 Player::Player()
 {
     //draw graphic
-   setPixmap(QPixmap(":/pictures/player.jpg"));
+//   setPixmap(QPixmap(":/pictures/player.jpg"));
+     health = new Health();
+//   scene()->addItem(health);
+//   health->setPos(0, 30);
 }
 
 void Player::keyPressEvent(QKeyEvent *event) {
@@ -30,4 +33,18 @@ void Player::Spawn(){
 
 //    Fuel *fuel = new Fuel();
 //    scene()->addItem(fuel);
+}
+Health *Player::getHealth() const
+{
+    return health;
+}
+
+void Player::setHealth(Health *value)
+{
+    health = value;
+}
+
+
+void Player::decrease(){
+    health->decrease();
 }
