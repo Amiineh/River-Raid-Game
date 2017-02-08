@@ -1,10 +1,12 @@
 #include "fuel.h"
 
+extern River* river;
+
 Fuel::Fuel(int Number): QObject(), QGraphicsPixmapItem(){
     QString pic_name = ":/pictures/fuel.jpg";
     setPixmap(QPixmap(pic_name));
     setScale(0.3);
-    this->setHit_score(river->fuelHitScore);
+    this->setHitScore(river->fuelHitScore);
     int random_number = rand() % 700;
     setPos(random_number, 0);
 
@@ -26,7 +28,7 @@ void Fuel::move(){
             return;
         }
         if(typeid(*(colliding_items[i])) == typeid(Player)){
-            scene()->health->fill();
+//            scene()->health->fill();
             scene()->removeItem(this);
             delete this;
             return;

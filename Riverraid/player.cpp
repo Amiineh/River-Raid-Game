@@ -27,4 +27,7 @@ void Player::Spawn(){
     int random_number = rand() % 4;
     Enemy *enemy = new Enemy(random_number+1);
     scene()->addItem(enemy);
+
+    Fuel *fuel = new Fuel();
+    scene()->addItem(fuel);
 }
