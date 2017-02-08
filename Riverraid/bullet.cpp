@@ -3,10 +3,9 @@
 extern River * river;
 
 Bullet::Bullet(): QObject(), QGraphicsRectItem(){
-    int random_number = rand() % 700;
-    setPos(random_number, 0);
+    //draw graphic
+    setPixmap(QPixmap(":/pictures/bullet.jpg"));
 
-    setRect(0,0,10, 10);
     QTimer * timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
     timer->start(50);
