@@ -4,8 +4,8 @@ extern River * river;
 
 Bullet::Bullet(): QObject(), QGraphicsPixmapItem(){
     //draw graphic
-    setPixmap(QPixmap(":/pictures/bullet.jpg"));
-    setScale(0.3);
+    setPixmap(QPixmap(":/pictures/bullet.png"));
+    setScale(0.5);
 
     QTimer * timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));

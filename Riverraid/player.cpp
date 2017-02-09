@@ -2,6 +2,7 @@
 
 Player::Player()
 {
+    //draw graphic
      health = new Health();
      speed = 0;
 }
@@ -16,7 +17,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
     else if (event->key() == Qt::Key_Space) {
         // create bullet
         Bullet *bullet = new Bullet();
-        bullet->setPos(x(), y());
+        bullet->setPos(x() + 18, y());
         scene()->addItem(bullet);
     }
 }
@@ -59,7 +60,7 @@ void Player::decrease(){
 
 void Player::update(){
     qDebug()<<"update";
-    if (190 < pos().x() + this->speed && pos().x() + this->speed < 700)
+    if (100 < pos().x() + this->speed && pos().x() + this->speed < 660)
        setPos(x() + this->speed, y());
 }
 int Player::getLevel() const

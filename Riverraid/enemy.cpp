@@ -14,7 +14,7 @@ Enemy::Enemy(int Number): QObject(), QGraphicsPixmapItem(){
 
     QString str;
     str.setNum(Number);
-    QString pic_name = ":/pictures/enemy_" + str + ".jpg";
+    QString pic_name = ":/pictures/enemy_" + str + ".png";
     setPixmap(QPixmap(pic_name));
     setScale(0.3);
 
@@ -34,8 +34,8 @@ Enemy::Enemy(int Number): QObject(), QGraphicsPixmapItem(){
     }
 
     qDebug() << "create enemy";
-    int random_number = rand() % 450;
-    setPos(random_number+225, 0);
+    int random_number = rand() % 550;
+    setPos(random_number+100, 0);
 
     QTimer * timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
@@ -69,7 +69,7 @@ void Enemy::move(){
     }
     qDebug() << "move enemy";
     setPos(x(), y()+10);
-    if(pos().y() > 450){
+    if(pos().y() > 400){
         scene()->removeItem(this);
         delete this;
     }
