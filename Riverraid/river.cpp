@@ -54,3 +54,8 @@ River::River(QWidget* parent)
     show();
 }
 
+void River::Game_Over(){
+    GameOver* gameover = new GameOver;
+    gameover->show();
+    delete this;
+}

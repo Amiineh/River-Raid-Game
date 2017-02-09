@@ -1,14 +1,13 @@
 #include <QApplication>
 #include "river.h"
-
-River * river;
+#include "mainwindow.h"
+MainWindow* mainwindow;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
-    river = new River();
-    river->show();
+    mainwindow = new MainWindow;
+    mainwindow->show();
 
     return a.exec();
 }
