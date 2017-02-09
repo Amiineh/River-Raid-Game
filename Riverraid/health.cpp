@@ -1,5 +1,7 @@
 #include "health.h"
 #include <QDebug>
+#include "river.h"
+extern River* river;
 
 Health::Health(QGraphicsItem* parent): QGraphicsTextItem(parent)
 {
@@ -13,9 +15,9 @@ Health::Health(QGraphicsItem* parent): QGraphicsTextItem(parent)
 void Health::decrease(){
     amount-=1;
     setPlainText("health:" + QString::number(amount));
-//    if(getAmount() <= 0){
-//        delete this;
-//    }
+    if(getAmount() <= 0){
+        river->Game_Over();
+    }
 }
 
 void Health::fill(){

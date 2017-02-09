@@ -20,14 +20,18 @@ public:
     Health *getHealth() const;
     void setHealth(Health *value);
 
+    int getLevel() const;
+
 public slots:
     void Spawn_enemy();
     void Spawn_fuel();
     void decrease();
     void update();
+    void level_up();
 private:
     Health * health;
     int speed;
+    int level = 0;
 };
 
 #endif // PLAYER_H

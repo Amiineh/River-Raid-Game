@@ -2,12 +2,8 @@
 
 Player::Player()
 {
-    //draw graphic
-//   setPixmap(QPixmap(":/pictures/player.jpg"));
      health = new Health();
      speed = 0;
-//   scene()->addItem(health);
-//   health->setPos(0, 30);
 }
 
 void Player::keyPressEvent(QKeyEvent *event) {
@@ -65,4 +61,19 @@ void Player::update(){
     qDebug()<<"update";
     if (190 < pos().x() + this->speed && pos().x() + this->speed < 700)
        setPos(x() + this->speed, y());
+}
+int Player::getLevel() const
+{
+    return level;
+}
+
+void Player::level_up(){
+    qDebug()<< "updateeeeeeeeeeeeeeee";
+    if(level < 1000)
+        level += 500;
+    // spawn enemies
+    QTimer *timer = new QTimer();
+    QObject::connect(timer,SIGNAL(timeout()), this, SLOT(Spawn_enemy()));
+    timer->start(2000-level);
+
 }

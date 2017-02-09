@@ -14,6 +14,7 @@
 #include <QImage>
 #include "score.h"
 #include "health.h"
+#include<QObject>
 #include "gameover.h"
 
 class River : public QGraphicsView{
