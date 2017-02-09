@@ -4,20 +4,20 @@ River::River(QWidget* parent)
 {
     //creating a scene
     scene = new QGraphicsScene();
-    scene->setSceneRect(0, 0, 900, 600);
+    scene->setSceneRect(0, 0, 800, 533);
 
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(900, 600);
+    setFixedSize(800, 533);
     //set background
-    setBackgroundBrush(QBrush(QImage(":/pictures/background.jpg")));
+    setBackgroundBrush(QBrush(QImage(":/pictures/background.png")));
 
     //create player
     player = new Player();
-    player->setPixmap(QPixmap(":/pictures/player.jpg"));
+    player->setPixmap(QPixmap(":/pictures/player.png"));
     player->setScale(0.2);
-    player->setPos(450,450);
+    player->setPos(380,395);
     //make player focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();

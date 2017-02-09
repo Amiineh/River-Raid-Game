@@ -4,12 +4,12 @@
 extern River* river;
 
 Fuel::Fuel(): QObject(), QGraphicsPixmapItem(){
-    QString pic_name = ":/pictures/fuel.jpg";
+    QString pic_name = ":/pictures/fuel.png";
     setPixmap(QPixmap(pic_name));
     setScale(0.7);
     this->setHitScore(river->fuelHitScore);
-    int random_number = rand() % 450;
-    setPos(random_number+225, 0);
+    int random_number = rand() % 550;
+    setPos(random_number+100, 0);
 
     QTimer * timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
@@ -37,7 +37,7 @@ void Fuel::move(){
 
     }
     setPos(x(), y()+10);
-    if(pos().y() > 450){
+    if(pos().y() > 398){
         scene()->removeItem(this);
         delete this;
     }
@@ -52,14 +52,4 @@ void Fuel::setHitScore(int value)
 {
     hitScore = value;
 }
-//Fuel::Fuel() {
-//    score = 0;
-//    setPlainText("score:" + QString::number(score));
-//    setDefaultTextColor(Qt::black);
-//    setScale(2);
-//}
 
-//void Fuel::increase(int value){
-//    score += value;
-//    setPlainText("score:" + QString::number(score));
-//}
