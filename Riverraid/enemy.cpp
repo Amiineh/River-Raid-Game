@@ -59,16 +59,15 @@ void Enemy::move(){
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
             qDebug()<<"delete player";
-            river->Game_Over();
             delete colliding_items[i];
+            river->Game_Over();
             delete this;
-
             return;
         }
 
     }
     qDebug() << "move enemy";
-    setPos(x(), y()+10);
+    setPos(x(), y()+10+2*river->player->getLevel());
     if(pos().y() > 400){
         scene()->removeItem(this);
         delete this;
@@ -89,4 +88,3 @@ void Enemy::setHit_score(int value)
 int Enemy::get_type(){
     return this->type;
 }
-

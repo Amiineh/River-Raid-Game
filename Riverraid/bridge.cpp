@@ -18,18 +18,15 @@ Bridge::Bridge(): QObject(), QGraphicsPixmapItem(){
 }
 
 void Bridge::move(){
-//    QList<QGraphicsItem *> colliding_items = collidingItems();
-//    for (int i = 0, n = colliding_items.size(); i < n; ++i ){
-//        if(typeid(*(colliding_items[i])) == typeid(Player)){
-//            // level up
-//        }
-
-//    }
-    setPos(x(), y()+10);
-    if(pos().y() > 398){
-        scene()->removeItem(this);
-        delete this;
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    for (int i = 0, n = colliding_items.size(); i < n; ++i ){
+        if(typeid(*(colliding_items[i])) == typeid(Player)){
+            river->player->level_up();
+            scene()->removeItem(this);
+            delete this;
+        }
     }
+    setPos(x(), y()+10);
 }
 
 int Bridge::getLevel() const
