@@ -1,4 +1,7 @@
 #include "player.h"
+#include "river.h"
+
+extern River* river;
 
 Player::Player()
 {
@@ -71,6 +74,13 @@ void Player::update(){
     qDebug()<<"update";
     if (100 < pos().x() + this->speed && pos().x() + this->speed < 660)
        setPos(x() + this->speed, y());
+    else {
+        scene()->removeItem(this);
+        qDebug()<<"delete player";
+        river->Game_Over();
+        delete this;
+        return;
+    }
 }
 
 int Player::getLevel() const
