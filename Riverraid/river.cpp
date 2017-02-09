@@ -47,3 +47,9 @@ River::River(QWidget* parent)
     timer_update_player->start(50);
     show();
 }
+
+void River::Game_Over(){
+    GameOver* gameover = new GameOver;
+    gameover->show();
+    delete this;
+}
