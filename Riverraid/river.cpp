@@ -28,6 +28,11 @@ River::River(QWidget* parent)
     score = new Score();
     scene->addItem(score);
 
+    QTimer *timer_level_up = new QTimer();
+    QObject::connect(timer_level_up, SIGNAL(timeout()), player, SLOT(level_up()));
+    timer_level_up->start(10000);
+
+    //decrease health
     QTimer *timer_health = new QTimer();
     QObject::connect(timer_health,SIGNAL(timeout()), player, SLOT(decrease()));
     timer_health->start(200);
@@ -37,13 +42,20 @@ River::River(QWidget* parent)
     QObject::connect(timer,SIGNAL(timeout()), player, SLOT(Spawn_enemy()));
     timer->start(2000);
 
-
+    // spawn fuel
     QTimer *timer_fuel = new QTimer();
     QObject::connect(timer_fuel,SIGNAL(timeout()), player, SLOT(Spawn_fuel()));
     timer_fuel->start(3000);
 
+    //update player
     QTimer * timer_update_player = new QTimer();
     QObject::connect(timer_update_player,SIGNAL(timeout()), player, SLOT(update()));
     timer_update_player->start(50);
     show();
+}
+
+void River::Game_Over(){
+    GameOver* gameover = new GameOver;
+    gameover->show();
+    delete this;
 }
