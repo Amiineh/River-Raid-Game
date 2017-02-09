@@ -17,7 +17,7 @@
 #include<QObject>
 #include "gameover.h"
 #include "bridge.h"
-
+#include <QList>
 class River : public QGraphicsView{
 public:
     const int shipHitScore = 30;

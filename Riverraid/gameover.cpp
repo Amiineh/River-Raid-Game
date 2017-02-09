@@ -2,8 +2,6 @@
 #include "ui_gameover.h"
 #include "river.h"
 
-extern River * river;
-
 GameOver::GameOver(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::GameOver)
@@ -23,5 +21,6 @@ void GameOver::on_close_clicked()
 
 void GameOver::on_try_again_clicked()
 {
-
+    River *river = new River;
+    river->show();
 }

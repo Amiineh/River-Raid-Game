@@ -10,7 +10,7 @@ River::River(QWidget* parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800, 533);
-    //set background
+    //set background    
     setBackgroundBrush(QBrush(QImage(":/pictures/background.png")));
 
     //create player
@@ -28,11 +28,6 @@ River::River(QWidget* parent)
     // create score
     score = new Score();
     scene->addItem(score);
-
-    QTimer *timer_level_up = new QTimer();
-    QObject::connect(timer_level_up, SIGNAL(timeout()), player, SLOT(level_up()));
-    timer_level_up->start(10000);
-
     //decrease health
     QTimer *timer_health = new QTimer();
     QObject::connect(timer_health,SIGNAL(timeout()), player, SLOT(decrease()));
@@ -61,7 +56,7 @@ River::River(QWidget* parent)
 }
 
 void River::Game_Over(){
+    qDebug()<<"*********************************";
     GameOver* gameover = new GameOver;
     gameover->show();
-    delete this;
 }

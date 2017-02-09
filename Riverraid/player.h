@@ -20,7 +20,6 @@ public:
     void keyReleaseEvent(QKeyEvent *event);
     Health *getHealth() const;
     void setHealth(Health *value);
-
     int getLevel() const;
 
 public slots:

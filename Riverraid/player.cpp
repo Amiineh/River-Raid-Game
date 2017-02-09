@@ -31,7 +31,8 @@ void Player::keyReleaseEvent(QKeyEvent *event) {
     }
     else if (event->key() == Qt::Key_Right && this->speed > 0) {
         this->speed = 0;
-    }}
+    }
+}
 
 void Player::Spawn_enemy(){
     int random_number = rand() % 4;
@@ -47,8 +48,10 @@ void Player::Spawn_fuel(){
 
 void Player::Spawn_bridge()
 {
-    Bridge * bridge = new Bridge();
-    scene()->addItem(bridge);
+    if(level < 6){
+        Bridge * bridge = new Bridge();
+        scene()->addItem(bridge);
+    }
 }
 
 
@@ -87,11 +90,11 @@ int Player::getLevel() const
 
 void Player::level_up(){
     qDebug()<< "updateeeeeeeeeeeeeeee";
-    if(level < 1000)
-        level += 500;
+    if(level < 5)
+        level += 1;
     // spawn enemies
     QTimer *timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()), this, SLOT(Spawn_enemy()));
-    timer->start(2000-level);
+    timer->start(2000-level*100);
 
 }

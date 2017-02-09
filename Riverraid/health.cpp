@@ -15,7 +15,7 @@ Health::Health(QGraphicsItem* parent): QGraphicsTextItem(parent)
 void Health::decrease(){
     amount-=1;
     setPlainText("health:" + QString::number(amount));
-    if(getAmount() <= 0){
+    if(getAmount() == 0){
         river->Game_Over();
     }
 }
