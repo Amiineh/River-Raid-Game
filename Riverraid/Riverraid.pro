@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     fuel.cpp \
     health.cpp \
     mainwindow.cpp \
-    gameover.cpp
+    gameover.cpp \
+    bridge.cpp
 
 HEADERS  += enemy.h \
     bullet.h \
@@ -42,7 +43,8 @@ HEADERS  += enemy.h \
     fuel.h \
     health.h \
     mainwindow.h\
-    gameover.h
+    gameover.h \
+    bridge.h
 
 FORMS    += \
     mainwindow.ui \

@@ -42,6 +42,12 @@ void Player::Spawn_fuel(){
     scene()->addItem(fuel);
 }
 
+void Player::Spawn_bridge()
+{
+    Bridge * bridge = new Bridge();
+    scene()->addItem(bridge);
+}
+
 
 Health *Player::getHealth() const
 {

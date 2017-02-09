@@ -24,6 +24,7 @@ River::River(QWidget* parent)
     //add player to scene
     scene->addItem(player);
     scene->addItem(player->getHealth());
+
     // create score
     score = new Score();
     scene->addItem(score);
@@ -46,6 +47,11 @@ River::River(QWidget* parent)
     QTimer *timer_fuel = new QTimer();
     QObject::connect(timer_fuel,SIGNAL(timeout()), player, SLOT(Spawn_fuel()));
     timer_fuel->start(3000);
+
+    // spawn bridge
+    QTimer *timer_bridge = new QTimer();
+    QObject::connect(timer_bridge,SIGNAL(timeout()), player, SLOT(Spawn_bridge()));
+    timer_bridge->start(20 * 1000);     //level yp every 20 seconds
 
     //update player
     QTimer * timer_update_player = new QTimer();

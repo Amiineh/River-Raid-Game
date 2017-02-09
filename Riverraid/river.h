@@ -16,6 +16,7 @@
 #include "health.h"
 #include<QObject>
 #include "gameover.h"
+#include "bridge.h"
 
 class River : public QGraphicsView{
 public:
@@ -30,6 +31,7 @@ public:
     QGraphicsScene *scene;
     Player *player;
     Score * score;
+    Bridge * bridge;
     void Game_Over();
 };
 

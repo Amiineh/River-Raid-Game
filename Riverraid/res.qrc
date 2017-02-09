@@ -8,5 +8,6 @@
         <file>enemy_1.png</file>
         <file>background.png</file>
         <file>enemy_4.png</file>
+        <file>bridge.png</file>
     </qresource>
 </RCC>
