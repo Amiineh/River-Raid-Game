@@ -36,7 +36,7 @@ void Player::keyReleaseEvent(QKeyEvent *event) {
 
 void Player::Spawn_enemy(){
     int random_number = rand() % 4;
-    Enemy *enemy = new Enemy(random_number+1);
+    Enemy *enemy = new Enemy(random_number+1, river->enemySpeedLevel[level]);
     scene()->addItem(enemy);
 }
 

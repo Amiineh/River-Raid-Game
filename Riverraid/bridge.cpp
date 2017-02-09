@@ -6,7 +6,6 @@ extern River* river;
 Bridge::Bridge(): QObject(), QGraphicsPixmapItem(){
     QString pic_name = ":/pictures/bridge.png";
     setPixmap(QPixmap(pic_name));
-    setScale(0.9);
     level++;
     qDebug() << "current level: " << level;
     setPos(0, 0);

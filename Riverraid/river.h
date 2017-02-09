@@ -27,6 +27,8 @@ public:
     const int fuelHitScore = 150;
     const int maxFuel = 100;
 
+    const int enemySpeedLevel[5] = {0, 10, 20, 30, 40};
+
     River(QWidget* parent = 0);
     QGraphicsScene *scene;
     Player *player;
