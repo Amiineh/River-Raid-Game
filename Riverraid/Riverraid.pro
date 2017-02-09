@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     score.cpp \
     fuel.cpp \
     health.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    gameover.cpp
 
 HEADERS  += enemy.h \
     bullet.h \
@@ -40,10 +41,12 @@ HEADERS  += enemy.h \
     score.h \
     fuel.h \
     health.h \
-    mainwindow.h
+    mainwindow.h\
+    gameover.h
 
 FORMS    += \
-    mainwindow.ui
+    mainwindow.ui \
+    gameover.ui
 
 RESOURCES += \
     res.qrc
