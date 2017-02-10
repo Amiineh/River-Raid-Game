@@ -7,10 +7,14 @@
 #include "player.h"
 #include <QString>
 #include "river.h"
+#include <cmath>
 
 extern River* river;
 
-Enemy::Enemy(int Number): QObject(), QGraphicsPixmapItem(){
+Enemy::Enemy(int Number, int speed): QObject(), QGraphicsPixmapItem(){
+
+    this->speed = speed;
+    this->type = Number;
 
     QString str;
     str.setNum(Number);
@@ -65,8 +69,16 @@ void Enemy::move(){
         }
 
     }
+    qDebug() << "move enemy";
+    if (this->type == 2) {
+        if (pos().x() < 110 || pos().x() > 550)
+            speed *= -1;
+    }
+    else if (pos().x() < 0 || pos().x() > 700)
+        speed *= -1;
 
-    setPos(x(), y()+10+2*river->player->getLevel());
+    setPos(x() + speed, y() + 2 + 2 * (4 - river->player->getLevel()));
+
     if(pos().y() > 400){
         scene()->removeItem(this);
         delete this;

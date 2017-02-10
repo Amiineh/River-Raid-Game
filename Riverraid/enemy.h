@@ -8,7 +8,7 @@ enum Enemys {balloon, jet, ship, helikopter};
 class Enemy: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
-    Enemy(int Number);
+    Enemy(int Number, int speed);
     ~Enemy();
     int get_type();
     int getHit_score() const;
@@ -19,6 +19,7 @@ public slots:
 private:
     int type;
     int hitScore;
+    int speed;
 };
 
 #endif // ENEMY

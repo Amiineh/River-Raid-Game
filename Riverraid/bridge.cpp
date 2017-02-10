@@ -7,7 +7,6 @@ Bridge::Bridge(): QObject(), QGraphicsPixmapItem(){
 
     QString pic_name = ":/pictures/bridge.png";
     setPixmap(QPixmap(pic_name));
-    setScale(0.9);
     level++;
 
     setPos(0, 0);
