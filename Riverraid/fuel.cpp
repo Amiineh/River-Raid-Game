@@ -41,7 +41,7 @@ void Fuel::move(){
 
     }
 
-    setPos(x(), y()+ 10+2*river->player->getLevel());
+    setPos(x(), y() + 2 + 2 * (4 - river->player->getLevel()));
     if(pos().y() > 398){
         scene()->removeItem(this);
         delete this;

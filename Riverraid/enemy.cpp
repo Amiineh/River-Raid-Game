@@ -77,7 +77,7 @@ void Enemy::move(){
     else if (pos().x() < 0 || pos().x() > 700)
         speed *= -1;
 
-    setPos(x() + speed, y() + 2 + 2 * (4 - river->player->getLevel()));
+    setPos(x() + speed/10, y() + 2 + 2 * (4 - river->player->getLevel()));
 
     if(pos().y() > 400){
         scene()->removeItem(this);
