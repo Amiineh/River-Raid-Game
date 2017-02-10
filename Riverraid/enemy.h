@@ -9,6 +9,7 @@ class Enemy: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
     Enemy(int Number, int speed);
+    ~Enemy();
     int get_type();
     int getHit_score() const;
     void setHit_score(int value);

@@ -37,7 +37,6 @@ Enemy::Enemy(int Number, int speed): QObject(), QGraphicsPixmapItem(){
         break;
     }
 
-    qDebug() << "create enemy";
     int random_number = rand() % 550;
     setPos(random_number+100, 0);
 
@@ -48,13 +47,14 @@ Enemy::Enemy(int Number, int speed): QObject(), QGraphicsPixmapItem(){
 }
 
 void Enemy::move(){
+
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i ){
         if(typeid(*(colliding_items[i])) == typeid(Bullet)){
             river->score->increase(this->getHit_score());
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
-            qDebug()<<"delete enemy and bullet";
+            qDebug()<< "bullet hit enemy";
             delete colliding_items[i];
             delete this;
             return;
@@ -62,10 +62,9 @@ void Enemy::move(){
         if(typeid(*(colliding_items[i])) == typeid(Player)){
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
-            qDebug()<<"delete player";
-            delete colliding_items[i];
-            river->Game_Over();
+            qDebug()<<"enemy hit player";
             delete this;
+            river->Game_Over();
             return;
         }
 
@@ -79,23 +78,26 @@ void Enemy::move(){
         speed *= -1;
 
     setPos(x() + speed, y() + 2 + 2 * (4 - river->player->getLevel()));
+
     if(pos().y() > 400){
         scene()->removeItem(this);
         delete this;
     }
 
 }
-int Enemy::getHit_score() const
-{
+int Enemy::getHit_score() const{
     return hitScore;
 }
 
-void Enemy::setHit_score(int value)
-{
+void Enemy::setHit_score(int value){
     hitScore = value;
 }
 
 
 int Enemy::get_type(){
     return this->type;
+}
+
+Enemy::~Enemy(){
+    qDebug()<<"Delete enemy";
 }

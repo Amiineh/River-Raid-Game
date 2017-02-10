@@ -21,6 +21,7 @@ River::River(QWidget* parent)
     //make player focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
+
     //add player to scene
     scene->addItem(player);
     scene->addItem(player->getHealth());
@@ -28,6 +29,7 @@ River::River(QWidget* parent)
     // create score
     score = new Score();
     scene->addItem(score);
+
     //decrease health
     QTimer *timer_health = new QTimer();
     QObject::connect(timer_health,SIGNAL(timeout()), player, SLOT(decrease()));
@@ -56,7 +58,12 @@ River::River(QWidget* parent)
 }
 
 void River::Game_Over(){
-    qDebug()<<"*********************************";
+    qDebug()<< "Game Over";
+    delete player;
     GameOver* gameover = new GameOver;
     gameover->show();
+}
+
+River::~River(){
+    qDebug()<<"Delete river";
 }
