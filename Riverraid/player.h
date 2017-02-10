@@ -16,6 +16,7 @@ class Player: public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
     Player();
+    ~Player();
     void keyPressEvent(QKeyEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
     Health *getHealth() const;

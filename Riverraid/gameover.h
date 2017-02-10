@@ -17,7 +17,6 @@ public:
 
 private slots:
     void on_close_clicked();
-
     void on_try_again_clicked();
 
 private:
