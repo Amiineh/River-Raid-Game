@@ -13,6 +13,7 @@ class Bridge: public QObject, public QGraphicsPixmapItem {
 
 public:
     Bridge();
+    ~Bridge();
     int getLevel() const;
     void setLevel(int value);
 

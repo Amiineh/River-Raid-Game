@@ -14,10 +14,11 @@
 #include <QImage>
 #include "score.h"
 #include "health.h"
-#include<QObject>
+#include <QObject>
 #include "gameover.h"
 #include "bridge.h"
 #include <QList>
+
 class River : public QGraphicsView{
 public:
     const int shipHitScore = 30;
@@ -28,6 +29,7 @@ public:
     const int maxFuel = 100;
 
     River(QWidget* parent = 0);
+    ~River();
     QGraphicsScene *scene;
     Player *player;
     Score * score;

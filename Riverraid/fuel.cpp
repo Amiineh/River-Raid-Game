@@ -4,6 +4,7 @@
 extern River* river;
 
 Fuel::Fuel(): QObject(), QGraphicsPixmapItem(){
+
     QString pic_name = ":/pictures/fuel.png";
     setPixmap(QPixmap(pic_name));
     setScale(0.7);
@@ -18,12 +19,14 @@ Fuel::Fuel(): QObject(), QGraphicsPixmapItem(){
 }
 
 void Fuel::move(){
+
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i ){
         if(typeid(*(colliding_items[i])) == typeid(Bullet)){
             river->score->increase(this->hitScore);
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
+            qDebug()<<"Bullet hit fuel";
             delete colliding_items[i];
             delete this;
             return;
@@ -31,11 +34,13 @@ void Fuel::move(){
         if(typeid(*(colliding_items[i])) == typeid(Player)){
             river->player->getHealth()->fill();
             scene()->removeItem(this);
+            qDebug()<<"Player hit fuel";
             delete this;
             return;
         }
 
     }
+
     setPos(x(), y()+ 10+2*river->player->getLevel());
     if(pos().y() > 398){
         scene()->removeItem(this);
@@ -43,13 +48,14 @@ void Fuel::move(){
     }
 }
 
-int Fuel::getHitScore() const
-{
+int Fuel::getHitScore() const{
     return hitScore;
 }
 
-void Fuel::setHitScore(int value)
-{
+void Fuel::setHitScore(int value){
     hitScore = value;
 }
 
+Fuel::~Fuel(){
+    qDebug()<<"Delete fuel";
+}
